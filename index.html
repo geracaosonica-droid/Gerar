@@ -238,7 +238,40 @@
     });
 
     loadSong(currentIndex);
+<script>
+    const audio = document.getElementById('audioPlayer');
+    const playBtn = document.getElementById('playBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const nowPlaying = document.getElementById('nowPlaying');
+
+    // ✅ AQUI ESTÁ O CAMINHO DAS PASTAS CERTINHO
+    const playlist = [
+        { name: "Dança dos Condenados", file: "musicas/Musica1.mp3" },
+        { name: "Salário de Inflação", file: "musicas/Musica2.mp3" },
+        { name: "Botão Verde", file: "musicas/Musica3.mp3" }
+    ];
+
+    let currentIndex = 0;
+
+    function loadSong(index) {
+        audio.src = playlist[index].file;
+        nowPlaying.innerHTML = `🎵 Tocando: ${playlist[index].name}`;
+    }
+
+    playBtn.addEventListener('click', () => {
+        audio.play();
+    });
+
+    pauseBtn.addEventListener('click', () => {
+        audio.pause();
+    });
+
+    audio.addEventListener('ended', () => {
+        currentIndex = (currentIndex + 1) % playlist.length;
+        loadSong(currentIndex);
+        audio.play();
+    });
+
+    loadSong(currentIndex);
 </script>
 
-</body>
-</html>
