@@ -1,2 +1,2 @@
 # Gerar
-Rádio geração Sônica 
+Rádio geração Sônica
