@@ -1,2 +1,2 @@
-# Gerar ok
+getavaosonica# Gerar ok
 Rádio geração Sônica
