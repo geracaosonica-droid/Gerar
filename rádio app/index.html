@@ -3,243 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geração Sônica - A Nova Era da Música Brasileira</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        neonPurple: '#9D00FF',
-                        neonBlue: '#0099FF',
-                        darkBg: '#0B0524',
-                        glassBg: 'rgba(255, 255, 255, 0.08)',
-                    },
-                    fontFamily: {
-                        sans: ['Arial', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .bg-gradient-neon {
-                background: linear-gradient(135deg, #9D00FF 0%, #0099FF 100%);
-            }
-            .text-neon {
-                text-shadow: 0 0 12px rgba(157, 0, 255, 0.9), 0 0 25px rgba(0, 153, 255, 0.7);
-            }
-            .bg-glass {
-                background: rgba(255, 255, 255, 0.08);
-                backdrop-filter: blur(15px);
-                border: 1px solid rgba(255, 255, 255, 0.18);
-            }
-            .scroll-large {
-                overflow-y: auto;
-                scroll-behavior: smooth;
-                max-height: 85vh;
-            }
-            .scroll-large::-webkit-scrollbar {
-                width: 14px;
-            }
-            .scroll-large::-webkit-scrollbar-thumb {
-                background: linear-gradient(180deg, #9D00FF, #0099FF);
-                border-radius: 12px;
-            }
-            .musica-item {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                padding: 18px;
-                border-radius: 16px;
-                transition: all 0.35s ease;
-            }
-            .musica-item:hover {
-                transform: scale(1.07);
-                background: rgba(255, 255, 255, 0.22);
-                box-shadow: 0 0 20px rgba(157, 0, 255, 0.4);
-            }
-            .disco-icone {
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                background: radial-gradient(circle, #9D00FF 0%, #4B0082 70%, #000000 100%);
-                box-shadow: 0 0 10px #9D00FF;
-                flex-shrink: 0;
-            }
-            .fundo-padrao {
-                background: linear-gradient(135deg, #0B0524 0%, #1E0B52 50%, #3A0CA3 100%);
-            }
-            .logo-estilo {
-                background: linear-gradient(135deg, #9D00FF 0%, #0099FF 100%);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-                font-weight: 900;
-                text-shadow: 0 0 20px rgba(157,0,255,0.6);
-            }
-        }
-    </style>
+    <title>Geração Sônica — Rádio 24h</title>
+    <link rel="stylesheet" href="assets/css/estilo-principal.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/imagens/icone-app.png">
 </head>
-<body class="fundo-padrao min-h-screen font-sans text-white overflow-x-hidden">
+<body>
 
-    <!-- Tela Inicial -->
-    <section id="telaInicial" class="min-h-screen flex flex-col items-center justify-center relative">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(157,0,255,0.2)_0%,_transparent_70%)]"></div>
-        <div class="relative z-10 text-center px-6">
-            <h1 class="text-7xl md:text-8xl font-extrabold logo-estilo mb-6">GERAÇÃO SÔNICA</h1>
-            <p class="text-2xl md:text-3xl text-cyan-100 mb-20">A nova era da música brasileira</p>
-            <button id="btnSintonizar" class="bg-gradient-neon px-20 py-8 rounded-[40px] text-4xl font-bold text-white shadow-2xl hover:scale-105 transition-transform duration-300 text-neon">
-                SINTONIZAR
-            </button>
-        </div>
-    </section>
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <div class="logo">GERAÇÃO SÔNICA</div>
+        <div class="subtitulo">A nova era da música brasileira</div>
+        <div class="indicador-ao-vivo">🔴 RÁDIO AO VIVO 24H</div>
+        <p style="font-size:12px; color:#888;">Reproduzido via Lark Player 🎵</p>
+    </header>
 
-    <!-- Tela Principal / Rádio 24h -->
-    <section id="telaRadio" class="min-h-screen hidden relative">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,153,255,0.2)_0%,_transparent_70%)]"></div>
-        <div class="relative z-10 p-8 min-h-screen flex flex-col">
-            <!-- Aviso Ao Vivo -->
-            <div id="avivoAlert" class="hidden w-full py-5 mb-10 bg-red-600 bg-opacity-90 rounded-2xl text-center text-2xl font-extrabold animate-pulse">
-                🔴 TRANSMISSÃO AO VIVO AGORA!
+    <main class="container">
+
+        <!-- 📻 Tela Rádio -->
+        <section id="tela-radio" class="tela ativa">
+            <div class="card">
+                <h2 class="titulo-secao">📻 RÁDIO AO VIVO</h2>
+                <div class="imagem-central">
+                    <img src="assets/imagens/tela-inicial.png" alt="Rádio Geração Sônica">
+                </div>
+                <button class="btn-principal" onclick="tocarRadioAoVivo()">▶️ LIGAR RÁDIO AGORA</button>
+                <p class="texto-info">Tocando agora: As Mais Tocadas • Geração Sônica</p>
+                <p class="texto-vinculo">✅ Vinculado ao Lark Player Oficial</p>
+                <a href="https://larkplayer.link/Ahg1u1hYBZ" target="_blank" style="color:#00b4d8; text-decoration:none; font-size:14px;">📥 Instalar/Atualizar Lark Player</a>
             </div>
+        </section>
 
-            <div class="flex justify-center mb-12">
-                <div class="w-72 h-48 rounded-3xl bg-gradient-neon flex items-center justify-center shadow-[0_0_40px_rgba(157,0,255,0.75)]">
-                    <span class="text-4xl font-bold text-white">📻 RÁDIO</span>
+        <!-- 🎵 Tela Playlist -->
+        <section id="tela-playlist" class="tela">
+            <div class="card">
+                <h2 class="titulo-secao">🎵 PLAYLIST</h2>
+                <p class="texto-info">Formatos suportados: MP3, WAV, FLAC, AAC</p>
+
+                <div class="lista-item">
+                    <div>
+                        <strong>Luzes de Neon</strong><br>
+                        <small>LUAH • 3:28 • MP3</small>
+                    </div>
+                    <button class="btn-tocar" onclick="tocarMusica('caminho/luzes-neon.mp3', 'Luzes de Neon', 'LUAH')">▶️</button>
+                </div>
+
+                <div class="lista-item">
+                    <div>
+                        <strong>Frequência Alta</strong><br>
+                        <small>R$ANTOS • 3:45 • WAV</small>
+                    </div>
+                    <button class="btn-tocar" onclick="tocarMusica('caminho/frequencia-alta.wav', 'Frequência Alta', 'R$ANTOS')">▶️</button>
+                </div>
+
+                <div class="lista-item">
+                    <div>
+                        <strong>Vem Comigo</strong><br>
+                        <small>Malu Azevedo • 2:56 • MP3</small>
+                    </div>
+                    <button class="btn-tocar" onclick="tocarMusica('caminho/vem-comigo.mp3', 'Vem Comigo', 'Malu Azevedo')">▶️</button>
                 </div>
             </div>
+        </section>
 
-            <h2 class="text-5xl font-bold text-center text-neon mb-14">RÁDIO 24H NO AR</h2>
-            <p class="text-center text-2xl text-cyan-100 mb-20">Tocando sem parar, sem pausa ou controle</p>
-
-            <!-- Links de Navegação -->
-            <div class="grid grid-cols-2 gap-10 w-full max-w-3xl mx-auto">
-                <button onclick="abrirTela('playlist')" class="bg-glass p-10 rounded-3xl text-3xl font-bold hover:bg-white/20 transition">
-                    🎵 PLAYLIST
-                </button>
-                <button onclick="abrirTela('podcast')" class="bg-glass p-10 rounded-3xl text-3xl font-bold hover:bg-white/20 transition">
-                    🎙️ PODCAST
-                </button>
-                <button onclick="abrirTela('aoVivo')" class="bg-glass p-10 rounded-3xl text-3xl font-bold hover:bg-white/20 transition">
-                    📡 AO VIVO
-                </button>
-                <button onclick="abrirTela('shows')" class="bg-glass p-10 rounded-3xl text-3xl font-bold hover:bg-white/20 transition">
-                    🎸 SHOWS
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tela da Playlist -->
-    <section id="telaPlaylist" class="min-h-screen hidden relative">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(157,0,255,0.2)_0%,_transparent_70%)]"></div>
-        <div class="relative z-10 p-8 min-h-screen flex flex-col">
-            <button onclick="voltar()" class="mb-10 text-2xl flex items-center gap-3">
-                <i class="fa fa-arrow-left"></i> Voltar
-            </button>
-
-            <h2 class="text-5xl font-bold text-center text-neon mb-12">🎵 Nossa Playlist</h2>
-
-            <!-- Caixa transparente grande -->
-            <div class="bg-glass w-full h-[85vh] rounded-3xl p-10 scroll-large">
-                <div id="listaMusicas" class="space-y-8">
-                    <!-- Cada item com disquinho roxo, sem números -->
-                    <div class="musica-item cursor-pointer" onclick="abrirMusica('Amor de Verdade', 'Carlos Silva', 'Seu Nome Aqui')">
-                        <div class="disco-icone"></div>
-                        <div>
-                            <p class="text-3xl font-bold text-white">Amor de Verdade</p>
-                            <p class="text-xl text-cyan-200">Compositor: Carlos Silva</p>
-                        </div>
-                    </div>
-                    <div class="musica-item cursor-pointer" onclick="abrirMusica('Caminhos da Vida', 'Ana Carolina', 'Seu Nome Aqui')">
-                        <div class="disco-icone"></div>
-                        <div>
-                            <p class="text-3xl font-bold text-white">Caminhos da Vida</p>
-                            <p class="text-xl text-cyan-200">Compositor: Ana Carolina</p>
-                        </div>
-                    </div>
-                    <div class="musica-item cursor-pointer" onclick="abrirMusica('No Ritmo do Brasil', 'Marcos Vinicius', 'Seu Nome Aqui')">
-                        <div class="disco-icone"></div>
-                        <div>
-                            <p class="text-3xl font-bold text-white">No Ritmo do Brasil</p>
-                            <p class="text-xl text-cyan-200">Compositor: Marcos Vinicius</p>
-                        </div>
-                    </div>
-                    <div class="musica-item cursor-pointer" onclick="abrirMusica('Estrela Guia', 'Luciana Mendes', 'Seu Nome Aqui')">
-                        <div class="disco-icone"></div>
-                        <div>
-                            <p class="text-3xl font-bold text-white">Estrela Guia</p>
-                            <p class="text-xl text-cyan-200">Compositor: Luciana Mendes</p>
-                        </div>
-                    </div>
-                    <div class="musica-item cursor-pointer" onclick="abrirMusica('Alma Brasileira', 'João Paulo', 'Seu Nome Aqui')">
-                        <div class="disco-icone"></div>
-                        <div>
-                            <p class="text-3xl font-bold text-white">Alma Brasileira</p>
-                            <p class="text-xl text-cyan-200">Compositor: João Paulo</p>
-                        </div>
-                    </div>
+        <!-- 🎙️ Tela Podcast -->
+        <section id="tela-podcast" class="tela">
+            <div class="card">
+                <h2 class="titulo-secao">🎙️ PODCASTS AO VIVO</h2>
+                <img src="assets/imagens/tela-podcast.png" alt="Podcast Geração Sônica" class="imagem-podcast">
+                <button class="btn-principal" onclick="tocarPodcast('caminho/podcast-ao-vivo.mp3', 'Podcast Geração Sônica')">🎧 OUVIR AGORA</button>
+                <div class="chat-live">
+                    <h3>💬 Bate-papo ao vivo</h3>
+                    <div class="mensagem">Lívia Martins: Salve, galera! Podcast demais hoje! 🔥</div>
+                    <div class="mensagem">DJ Rafael: Esse episódio tá sensacional! 🚀</div>
+                    <input type="text" placeholder="Digite sua mensagem..." class="campo-chat">
+                    <button class="btn-principal">ENVIAR</button>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Tela de Reprodução -->
-    <section id="telaReproduzir" class="fixed inset-0 hidden z-50">
-        <div class="absolute inset-0 bg-gradient-to-br from-[#0B0524] via-[#2A0E61] to-[#5A189A]"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(157,0,255,0.3)_0%,_transparent_70%)]"></div>
-        <div class="relative z-10 h-full flex flex-col items-center justify-center p-12">
-            <button onclick="fecharReproduzir()" class="absolute top-12 right-12 text-5xl">✕</button>
-            <div class="bg-glass w-full h-[85vh] rounded-3xl p-14 flex flex-col items-center justify-center text-center">
-                <!-- Logo grande aqui -->
-                <h2 class="text-7xl font-extrabold logo-estilo mb-12">GERAÇÃO SÔNICA</h2>
-                <h3 id="nomeMusica" class="text-6xl font-extrabold text-white mb-8 text-neon"></h3>
-                <p id="nomeCompositor" class="text-4xl text-cyan-100 mb-6"></p>
-                <p id="seuNome" class="text-3xl font-semibold text-purple-200 mb-20">Produzido por: Seu Nome Aqui</p>
-                <button class="bg-gradient-neon px-20 py-10 rounded-full text-5xl font-bold text-white shadow-xl hover:scale-105 transition-transform duration-300">
-                    ▶️ TOCAR AGORA
-                </button>
+        <!-- 🎟️ Agenda de Shows -->
+        <section id="tela-agenda" class="tela">
+            <div class="card">
+                <h2 class="titulo-secao">🎟️ AGENDA & SHOWS</h2>
+                <p class="texto-info">Confira todas as datas, locais e ingressos!</p>
+                <a href="https://instagram.com/geracaosonica" target="_blank" class="btn-principal">📱 ABRIR NO INSTAGRAM</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Outras Telas -->
-    <section id="telaPodcast" class="min-h-screen hidden relative">
-        <div class="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,153,255,0.15)_0%,_transparent_70%)]"></div>
-        <div class="relative z-10 p-8">
-            <button onclick="voltar()" class="mb-10 text-2xl"><i class="fa fa-arrow-left"></i> Voltar</button>
-            <h2 class="text-5xl font-bold text-center text-neon mb-14">🎙️ PODCAST</h2>
-            <div class="bg-glass rounded-3xl p-10 h-[75vh] flex items-center justify-center">
-                <p class="text-3xl text-center">Conteúdos exclusivos da Geração Sônica</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="telaAoVivo" class="min-h-screen hidden relative">
-        <div class="absolute inset-0 bg-[radial-gradient(circle,_rgba(157,0,255,0.15)_0%,_transparent_70%)]"></div>
-        <div class="relative z-10 p-8">
-            <button onclick="voltar()" class="mb-10 text-2xl"><i class="fa fa-arrow-left"></i> Voltar</button>
-            <h2 class="text-5xl font-bold text-center text-neon mb-14">📡 RÁDIO AO VIVO</h2>
-            <div class="bg-glass rounded-3xl p-10 h-[75vh] flex items-center justify-center">
-                <p class="text-3xl text-center">Acompanhe tudo ao vivo direto do Larkey Play</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="telaShows" class="min-h-screen hidden relative">
-        <div class="absolute inset-0 bg-[radial-gradient(circle,_rgba(0,153,255,0.15)_0%,_transparent_70%)]"></div>
-        <div class="relative z-10 p-8">
-            <button onclick="voltar()" class="mb-10 text-2xl"><i class="fa fa-arrow-left"></i> Voltar</button>
-            <h2 class="text-5xl font-bold text-center text-neon mb-14">🎸 SHOWS AO VIVO</h2>
-            <div class="bg-glass rounded-3xl p-10 h-[75vh] flex items-center justify-center">
-                <p class="text-3xl text-center">Os melhores shows direto dos palcos</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lógica de Funcionamento -->
-    <script>
-        const telas = ['telaInicial', 'telaRadio', 'telaPlaylist', 'telaPodcast', 'telaAoV
+        <!-- 📤 Envie Sua Música -->
+        <section id="tela-envio" class="tela">
+            <div
